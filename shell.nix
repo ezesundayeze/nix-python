@@ -1,11 +1,6 @@
-{ pkgs ? import <nixpkgs> {} }:
-
-let
-  python = pkgs.python38;
-in
-
+with import <nixpkgs> {};
 pkgs.mkShell {
-  buildInputs = [ python ];
+  buildInputs = [ python38 pkgs.emacs ];
   shellHook = ''
     python -m venv venv
     source venv/bin/activate
